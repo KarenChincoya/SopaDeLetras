@@ -1,9 +1,6 @@
 
-import Utilities.Archivo;
-import Controller.SopaDeLetras;
-import Utilities.FileChooser;
+import View.MainFrame;
 import java.io.FileNotFoundException;
-import java.io.FileWriter;
 import java.io.IOException;
 
 /*
@@ -14,19 +11,10 @@ import java.io.IOException;
 
 /**
  *
- * @author Karen Velasco
+ * @author karen
  */
 public class Main {
-    public static void main(String[] args) throws FileNotFoundException, IOException, ClassNotFoundException {
-        Archivo archivo = new Archivo();
-        
-        String path = FileChooser.getFilePath();
-        
-        String texto = archivo.leerArchivo(path);
-        
-        
-        SopaDeLetras sopaDeLetras = new SopaDeLetras(texto);
-        sopaDeLetras.Evaluar();
-            
+    public static void main(String[] args) throws IOException, FileNotFoundException, ClassNotFoundException {
+        new MainFrame();
     }
 }
