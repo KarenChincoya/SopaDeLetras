@@ -5,9 +5,9 @@
  */
 package Controller;
 
-import Model.ListaPalabras;
-import Model.Palabra;
-import static Model.Status.ERROR;
+import Utilities.ListaPalabras;
+import Utilities.Palabra;
+import static Utilities.Status.ERROR;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
@@ -19,7 +19,7 @@ import java.io.IOException;
  */
 public class SopaDeLetras {
     char[][] grid;
-    File INPUT;
+    //File INPUT;
     Integer n;
     Integer m;
     Integer p;
@@ -153,7 +153,11 @@ public class SopaDeLetras {
     
     //generar un archivo, con la cantidad de errores
     public void Evaluar() throws IOException, IOException{
-        File file = new File("C:\\Users\\Karen Velasco\\Desktop\\Proyectos POO\\Tareas\\SopaDeLetras\\OUTPUT.txt");
+        //el path es hasta 
+         
+        String currentDir = System.getProperty("user.dir");
+         
+        File file = new File(currentDir+"/OUTPUT.txt");
         
         try ( //crear un archivo
                 FileWriter writer = new FileWriter(file) //pide un file, input output error
@@ -164,12 +168,9 @@ public class SopaDeLetras {
 
             while(current!=null){
 
-                System.out.println("Funciones para: "+ current.toString());
-
                 current.IdentificarOrigenes(n, m, grid);
                 current.Resolver(n, m, grid);
 
-                System.out.println("    Resultado: "+current.toString());
                 if(current.getStatus() == ERROR)
                     counter++;
 

@@ -1,3 +1,5 @@
+package Utilities;
+
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -18,7 +20,7 @@ import java.io.IOException;
 public class Archivo {
     //File file;
     
-    public String leerArchivo(String path) throws FileNotFoundException, IOException, ClassNotFoundException{
+    public static String leerArchivo(String path) throws FileNotFoundException, IOException, ClassNotFoundException{
         
         File file = new File(path);
                 
@@ -42,8 +44,7 @@ public class Archivo {
         
     }
     
-    public File escribirArchivo(String path, String texto) throws FileNotFoundException, IOException{
-         System.out.println("Funcion escribir archivo recibe una cadena de texto");
+    public static File escribirArchivo(String path, String texto) throws FileNotFoundException, IOException{
          File file = new File(path);
        
           try ( //crear un archivo
@@ -57,7 +58,7 @@ public class Archivo {
     }
    
     
-    public void appendText(File file, String texto) throws FileNotFoundException, IOException{
+    public static void appendText(File file, String texto) throws FileNotFoundException, IOException{
     
 
           try ( //crear un archivo

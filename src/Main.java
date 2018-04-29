@@ -1,5 +1,7 @@
 
+import Utilities.Archivo;
 import Controller.SopaDeLetras;
+import Utilities.FileChooser;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -17,12 +19,12 @@ import java.io.IOException;
 public class Main {
     public static void main(String[] args) throws FileNotFoundException, IOException, ClassNotFoundException {
         Archivo archivo = new Archivo();
-        String texto = archivo.leerArchivo("INPUT.TXT");
         
-//        System.out.println("Texto de INPUT");
-//        System.out.println(texto);
+        String path = FileChooser.getFilePath();
         
-//        System.out.println("Fin del texto de INPUT \n A continuacion la funcion sopa de Letras \n");        
+        String texto = archivo.leerArchivo(path);
+        
+        
         SopaDeLetras sopaDeLetras = new SopaDeLetras(texto);
         sopaDeLetras.Evaluar();
             
